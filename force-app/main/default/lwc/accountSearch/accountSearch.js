@@ -5,6 +5,5 @@ export default class AccountSearch extends LightningElement {
 
     searchAccountContactHandler(e){
         this.searchText = e.detail;
-        console.log(`${this.searchText} !!!`)
     }
 }

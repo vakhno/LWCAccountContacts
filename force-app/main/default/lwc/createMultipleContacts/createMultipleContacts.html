@@ -1,0 +1,47 @@
+<template>
+    <!-- <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
+    <div class="slds-modal__container"> -->
+    <div class="slds-modal__header">
+        <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Modal header</h1>
+      </div> 
+      <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <lightning-button-icon icon-name="utility:adduser" variant="brand" alternative-text="Add Contact" class="slds-m-left_xx-small" title="Add Contact" onclick={createEmptyContact}></lightning-button-icon>
+    <template if:true={isContactsExist}>
+        <div>
+        <template for:each={contacts} for:item="contact">
+                <div class="slds-grid slds-grid_vertical-align-end" key={contact.index}>
+                    <div class="slds-col slds-m-right_x-small">
+                        <lightning-input type="text" value={contact.FirstName} placeholder="Enter First Name" data-index={contact.index} onchange={firstNameHandleChange} required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-m-right_x-small">
+                        <lightning-input type="text" value={contact.LastName} placeholder="Enter Last Name" data-index={contact.index} onchange={lastNameHandleChange} required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-m-right_x-small">
+                        <lightning-input type="email" value={contact.Email} placeholder="Enter Email" data-index={contact.index} onchange={emailHandleChange} required></lightning-input>
+                    </div>
+                    <lightning-combobox
+                        name="gender"
+                        value={contact.gender}
+                        placeholder="Select Gender"
+                        options={getGenderPicklistValues}
+                        data-index={contact.index}
+                        onchange={handleGenderChange}
+                        class="slds-m-right_x-small">
+                    </lightning-combobox>
+                    <div class="slds-col">
+                        <lightning-button-icon icon-name="utility:delete" data-index={contact.index} variant="brand" alternative-text="Delete" title="Delete" onclick={handeDeleteContact}></lightning-button-icon>
+                    </div>
+                </div>
+        </template>
+    </div>
+    </template>
+    <template if:false={isContactsExist}>
+        Contacts list is empty
+    </template>
+      </div>
+      <div class="slds-modal__footer">
+        <button class="slds-button slds-button_brand" onclick={handleSubmit}>Submit</button>
+      </div>
+    <!-- </div>
+</section> -->
+</template>
